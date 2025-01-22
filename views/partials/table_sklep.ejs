@@ -1,0 +1,26 @@
+<!-- views/partials/table_sklep.ejs -->
+<link rel="stylesheet" href="/table-styles.css">
+<table border="1">
+    <thead>
+    <tr>
+        <th>Cena</th>
+        <th>Nazwa Gry</th>
+        <th>Data Wydania</th>
+        <th>Nazwa Dewelopera</th>
+        <th>Nazwa Wydawcy</th>
+        <th>Zdjęcie</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% gry.forEach(function(gryItem) { %>
+        <tr>
+            <td><%= gryItem.cena %></td>
+            <td><%= gryItem.gierka %></td>
+            <td><%= new Date(gryItem.release_date).toLocaleDateString('pl-PL') %></td>
+            <td><%= gryItem.developer_name %></td>
+            <td><%= gryItem.publisher_name %></td>
+            <td><img src="/<%= gryItem.gierka %>.jpg" alt="<%= gryItem.gierka %>" width="100"></td>
+        </tr>
+    <% }); %>
+    </tbody>
+</table>

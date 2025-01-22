@@ -1,0 +1,24 @@
+<!-- views/partials/table_sklep.ejs -->
+<link rel="stylesheet" href="/table-styles.css">
+<table border="1">
+    <thead>
+    <tr>
+        <th>Imie</th>
+        <th>Nazwisko</th>
+        <th>Gra</th>
+        <th>Ocena</th>
+        <th>Komentarz</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% review.forEach(function(review) { %>
+        <tr>
+            <td><%= review.imie %></td>
+            <td><%= review.nazwisko%></td>
+            <td><%= review.gierka %></td>
+            <td><%= review.rating %></td>
+            <td><%= review.review_text%></td>
+        </tr>
+    <% }); %>
+    </tbody>
+</table>

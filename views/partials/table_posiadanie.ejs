@@ -1,0 +1,18 @@
+<!-- views/partials/table_sklep.ejs -->
+<link rel="stylesheet" href="/table-styles.css">
+<table border="1">
+    <thead>
+    <tr>
+        <th>Gra</th>
+        <th>Platforma</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% posiadanie.forEach(function(posiadanie) { %>
+        <tr>
+            <td><%= posiadanie.id_gry %></td>
+            <td><%= posiadanie.id_platform%></td>
+        </tr>
+    <% }); %>
+    </tbody>
+</table>

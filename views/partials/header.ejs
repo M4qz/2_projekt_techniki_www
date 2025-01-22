@@ -1,0 +1,20 @@
+<!-- views/partials/header.ejs -->
+<header>
+    <nav>
+        <ul>
+            <% if (user) { %>
+            <li><a href="/" >
+                    <img src="/home-icon.png" alt="Home" class="Home" width="30">
+                </a></li>
+            <li><a href="/sklep">Sklep</a></li>
+            <li><a href="/biblioteka">Biblioteka</a></li>
+            <li><a href="/recenzje">Recenzje</a></li>
+            <li><a href="/statystyka-konta">Statystyka konta</a></li>
+                <li><a href="/logout">Wyloguj się</a></li>
+            <% } else { %>
+                <li><a href="/login">Zaloguj się</a></li>
+            <% } %>
+        </ul>
+    </nav>
+</header>
+
