@@ -1,4 +1,3 @@
-<!-- views/recenzje.ejs -->
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -10,6 +9,29 @@
 </head>
 <body>
 <%- include('partials/header') %>
-<%- include('partials/table_recenzje', { gry: review }) %> <!-- Włączenie tabeli z grami -->
+
+<form action="/recenzje/dodaj" method="POST">
+    <label for="game">Wybierz grę:</label>
+    <select name="game" id="game">
+        <% for (let i = 0; i < gameNames.length; i++) { %>
+            <option value="<%= gameNames[i] %>"><%= gameNames[i] %></option>
+        <% } %>
+    </select>
+
+    <label for="rating">Ocena:</label>
+    <select name="rating" id="rating">
+        <% for (let i = 1; i <= 5; i++) { %>
+            <option value="<%= i %>"><%= i %></option>
+        <% } %>
+    </select>
+
+    <label for="comment">Komentarz:</label>
+    <textarea name="comment" id="comment" rows="4" cols="50"></textarea>
+
+    <button type="submit">Dodaj Recenzję</button>
+</form>
+
+<%- include('partials/table_recenzje', { review: review }) %>
+
 </body>
 </html>

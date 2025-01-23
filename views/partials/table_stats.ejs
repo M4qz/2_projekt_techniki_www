@@ -1,0 +1,20 @@
+<!-- views/partials/table_sklep.ejs -->
+<link rel="stylesheet" href="/table-styles.css">
+<table border="1">
+    <thead>
+    <tr>
+        <th>Gra</th>
+        <th>Czas Gry</th>
+        <th>Ostatnia Rozgrywka</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% stats.forEach(function(stats) { %>
+        <tr>
+            <td><%= stats.gierka %></td>
+            <td><%= stats.czas_gry.toString().slice(0, -7) %></td>
+            <td><%= new Date(stats.ostatnia_rozgrywka ).toLocaleDateString('pl-PL') %></td>
+        </tr>
+    <% }); %>
+    </tbody>
+</table>

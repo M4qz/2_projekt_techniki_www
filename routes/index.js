@@ -11,7 +11,7 @@ router.get('/sklep', indexController.getSklepPage);
 router.get('/biblioteka', indexController.getBibliotekaPage);
 router.get('/recenzje', indexController.getRecenzjePage);
 router.get('/statystyka-konta', indexController.getStatystykaKontaPage);
-
+router.post('/recenzje/dodaj', indexController.addReview);
 // Strona logowania
 router.get('/login', (req, res) => {
     if (req.session.loginFailed) {
