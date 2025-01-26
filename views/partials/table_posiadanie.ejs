@@ -1,18 +1,58 @@
-<!-- views/partials/table_sklep.ejs -->
 <link rel="stylesheet" href="/table-styles.css">
 <table border="1">
     <thead>
     <tr>
         <th>Gra</th>
         <th>Platforma</th>
+        <th>Włącz/Wyłącz Grę</th>
     </tr>
     </thead>
     <tbody>
     <% posiadanie.forEach(function(posiadanie) { %>
         <tr>
             <td><%= posiadanie.gierka %></td>
-            <td><%= posiadanie.platform_name%></td>
+            <td><%= posiadanie.platform_name %></td>
+            <td>
+                <button class="play-button" data-game-id="<%= posiadanie.id %>" data-game-name="<%= posiadanie.gierka %>" data-platform="<%= posiadanie.platform_name %>">Graj</button>
+            </td>
         </tr>
     <% }); %>
     </tbody>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const playButtons = document.querySelectorAll('.play-button');
+            playButtons.forEach(button => {
+                button.addEventListener('click', async function() {
+                    const gameName = this.getAttribute('data-game-name');
+                    const platformName = this.getAttribute('data-platform');
+
+                    console.log('Game Name:', gameName);
+                    console.log('Platform Name:', platformName);
+
+                    try {
+                        const response = await fetch('/play', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({ gameName, platformName })
+                        });
+
+                        const result = await response.json();
+                        console.log('Response:', result);
+
+                        if (response.ok) {
+                            alert(result.message);
+                        } else {
+                            alert('Error: ' + result.message);
+                        }
+                    } catch (error) {
+                        console.error('Error:', error);
+                        alert('An error occurred while starting the game.');
+                    }
+                });
+            });
+        });
+    </script>
+</table>
 </table>

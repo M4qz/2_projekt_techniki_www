@@ -6,6 +6,7 @@
         <th>Gra</th>
         <th>Czas Gry</th>
         <th>Ostatnia Rozgrywka</th>
+        <th>Platforma</th>
     </tr>
     </thead>
     <tbody>
@@ -14,6 +15,7 @@
             <td><%= stats.gierka %></td>
             <td><%= stats.czas_gry.toString().slice(0, -7) %></td>
             <td><%= new Date(stats.ostatnia_rozgrywka ).toLocaleDateString('pl-PL') %></td>
+            <td><%= stats.platform_name %></td>
         </tr>
     <% }); %>
     </tbody>

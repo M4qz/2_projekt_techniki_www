@@ -9,10 +9,11 @@
         <th>Nazwa Dewelopera</th>
         <th>Nazwa Wydawcy</th>
         <th>Zdjęcie</th>
+        <th>Akcja</th>
     </tr>
     </thead>
     <tbody>
-    <% gry.forEach(function(gryItem) { %>
+    <% gry.forEach(function(gryItem, index) { %>
         <tr>
             <td><%= gryItem.cena %></td>
             <td><%= gryItem.gierka %></td>
@@ -20,7 +21,49 @@
             <td><%= gryItem.developer_name %></td>
             <td><%= gryItem.publisher_name %></td>
             <td><img src="/<%= gryItem.gierka %>.jpg" alt="<%= gryItem.gierka %>" width="100"></td>
+            <td>
+                <button onclick="kupGre('<%= gryItem.id %>', '<%= gryItem.gierka %>')">Kup</button>
+            </td>
         </tr>
     <% }); %>
     </tbody>
 </table>
+
+<div class="dropdown-container">
+    <label for="platform-dropdown">Platforma:</label>
+    <select id="platform-dropdown" class="dropdown">
+        <option value="0">PC</option>
+        <option value="1">Xbox Series X</option>
+        <option value="2">PlayStation 5</option>
+        <option value="3">Nintendo Switch</option>
+    </select>
+</div>
+
+<script>
+    function kupGre(graId, nazwaGry) {
+        const platforma = document.getElementById('platform-dropdown').value;
+        const platformNames = ['PC', 'Xbox Series X', 'PlayStation 5', 'Nintendo Switch'];
+        const selectedPlatform = platformNames[platforma];
+        console.log(`Kupowanie gry: ${nazwaGry}, platforma: ${selectedPlatform}`); // Debugowanie
+
+        fetch('/zakup', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ nazwaGry, platforma: selectedPlatform })
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert(`Gra "${nazwaGry}" została zakupiona na platformę ${selectedPlatform}!`);
+                } else {
+                    alert('Błąd podczas zakupu gry: ' + data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Błąd podczas zakupu gry.');
+            });
+    }
+</script>

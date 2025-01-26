@@ -1,0 +1,17 @@
+/* public/wallet.css */
+.wallet-balance {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333;
+    margin: 10px 0;
+    padding: 5px 10px;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.wallet-balance::before {
+    content: "💰 ";
+    font-size: 1.2em;
+}

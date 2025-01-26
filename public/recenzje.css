@@ -1,0 +1,55 @@
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+table thead {
+    background-color: #333;
+    color: #fff;
+}
+
+table th, table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+textarea {
+    width: 80%;
+    height: 100px;
+    width: 980px;
+    margin: -100px 130px 10px; /*Added left margin */
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    resize: vertical;
+}
+
+textarea:focus {
+    border-color: #333;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+label {
+    display: block;
+    margin: 10px 5px 5px; /* Adjusted margin to move the labels higher */
+    font-weight: bold;
+}
+button {
+    margin-left: 5px;
+    margin-top: -30px;
+    padding: 10px 10px;
+}
+

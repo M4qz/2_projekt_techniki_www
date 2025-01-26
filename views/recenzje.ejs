@@ -8,24 +8,25 @@
     <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
+
 <%- include('partials/header') %>
 
 <form action="/recenzje/dodaj" method="POST">
     <label for="game">Wybierz grę:</label>
-    <select name="game" id="game">
+    <select name="game" id="game" class="expandable-bar">
         <% for (let i = 0; i < gameNames.length; i++) { %>
             <option value="<%= gameNames[i] %>"><%= gameNames[i] %></option>
         <% } %>
     </select>
 
     <label for="rating">Ocena:</label>
-    <select name="rating" id="rating">
+    <select name="rating" id="rating" class="expandable-bar">
         <% for (let i = 1; i <= 5; i++) { %>
             <option value="<%= i %>"><%= i %></option>
         <% } %>
     </select>
 
-    <label for="comment">Komentarz:</label>
+    <label for="comment"></label>
     <textarea name="comment" id="comment" rows="4" cols="50"></textarea>
 
     <button type="submit">Dodaj Recenzję</button>

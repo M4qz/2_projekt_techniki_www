@@ -3,6 +3,7 @@ const router = express.Router();
 const indexController = require('../controllers/indexController');
 const UserModel = require('../models/userModel');
 
+
 // Strona główna, dostępna bez logowania
 router.get('/', indexController.getHomePage);
 
@@ -12,6 +13,9 @@ router.get('/biblioteka', indexController.getBibliotekaPage);
 router.get('/recenzje', indexController.getRecenzjePage);
 router.get('/statystyka-konta', indexController.getStatystykaKontaPage);
 router.post('/recenzje/dodaj', indexController.addReview);
+router.post('/zakup', indexController.handlePurchase);
+router.post('/play', indexController.startPlaying);
+
 // Strona logowania
 router.get('/login', (req, res) => {
     if (req.session.loginFailed) {
