@@ -1,1 +1,1 @@
-# 2_projekt_techniki_www
+# Sql był odpalany w lokalnym serwerze apache (xampp)
