@@ -18,6 +18,6 @@ Aplikacja oparta jest na warstwowej architekturze, która jest zgodna z logiką 
 
 *   Zastosowano szablon EJS.
 
-#Aplikacja umożliwia zakupy, recenzowanie gier, uruchamianie rozgrywek oraz śledzenie statystyk związanych z przebiegiem gry.
-#Sql był odpalany w lokalnym serwerze apache (xampp 127.0.0.1).
+# Aplikacja umożliwia zakupy, recenzowanie gier, uruchamianie rozgrywek oraz śledzenie statystyk związanych z przebiegiem gry.
+# Sql był odpalany w lokalnym serwerze apache (xampp 127.0.0.1).
 
